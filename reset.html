@@ -1,0 +1,66 @@
+<!doctype html>
+<html lang="zh-Hant">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Reset Okinawa App Cache</title>
+  <style>
+    body {
+      margin: 0;
+      min-height: 100vh;
+      display: grid;
+      place-items: center;
+      background: linear-gradient(135deg, #c7f6ff, #fff4d7 52%, #ffb36b);
+      color: #082f42;
+      font-family: "Noto Sans TC", "Microsoft JhengHei", sans-serif;
+    }
+    .card {
+      width: min(88vw, 520px);
+      padding: 34px;
+      border-radius: 30px;
+      background: rgba(255, 255, 255, .84);
+      box-shadow: 0 24px 80px rgba(8, 47, 66, .18);
+      text-align: center;
+    }
+    h1 { margin: 0 0 12px; font-size: 32px; }
+    p { line-height: 1.7; color: #587184; }
+    a {
+      display: inline-flex;
+      margin-top: 18px;
+      padding: 14px 22px;
+      border-radius: 999px;
+      color: white;
+      background: #069db5;
+      text-decoration: none;
+      font-weight: 800;
+    }
+    code { color: #0a7790; font-weight: 800; }
+  </style>
+</head>
+<body>
+  <section class="card">
+    <h1>快取已重置中</h1>
+    <p id="status">正在清除舊版 App 快取，完成後請按下方按鈕回到新版。</p>
+    <a href="./?v=17">開啟新版</a>
+  </section>
+  <script>
+    async function resetCache() {
+      const status = document.getElementById("status");
+      try {
+        if ("serviceWorker" in navigator) {
+          const registrations = await navigator.serviceWorker.getRegistrations();
+          await Promise.all(registrations.map((registration) => registration.unregister()));
+        }
+        if ("caches" in window) {
+          const keys = await caches.keys();
+          await Promise.all(keys.map((key) => caches.delete(key)));
+        }
+        status.innerHTML = "清除完成。請點 <code>開啟 V17 新版</code>，如果還是舊畫面再按 Ctrl + F5。";
+      } catch (error) {
+        status.textContent = "清除時遇到瀏覽器限制，請按 Ctrl + F5，或到 Chrome 清除網站資料。";
+      }
+    }
+    resetCache();
+  </script>
+</body>
+</html>
