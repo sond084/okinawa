@@ -1,10 +1,10 @@
 {
-  "name": "Okinawa 5D4N Passport Atlas",
+  "name": "Okinawa 5D4N Journey Book",
   "short_name": "Okinawa",
   "start_url": "./",
   "display": "standalone",
-  "background_color": "#f8f0d6",
-  "theme_color": "#06364a",
+  "background_color": "#f8efcf",
+  "theme_color": "#04394b",
   "icons": [
     {
       "src": "icon.svg",

@@ -5,17 +5,17 @@
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <title>Reset Okinawa App</title>
   <style>
-    body{margin:0;min-height:100vh;display:grid;place-items:center;background:linear-gradient(135deg,#b9f5ff,#fff3d5,#ffb15d);font-family:"Noto Sans TC","Microsoft JhengHei",sans-serif;color:#07364a}
-    section{width:min(88vw,520px);padding:34px;border-radius:32px;background:rgba(255,255,255,.82);box-shadow:0 30px 90px rgba(7,54,74,.22);text-align:center}
-    h1{margin:0 0 12px;font-size:32px}
-    p{line-height:1.8;color:#557286}
-    a{display:inline-flex;margin-top:16px;padding:14px 22px;border-radius:999px;background:#078ea6;color:white;text-decoration:none;font-weight:900}
+    body{margin:0;min-height:100vh;display:grid;place-items:center;background:linear-gradient(135deg,#b8f4ff,#fff2cb,#ffae52);font-family:"Noto Sans TC","Microsoft JhengHei",sans-serif;color:#04394b}
+    section{width:min(88vw,520px);padding:34px;border-radius:30px;background:rgba(255,255,255,.86);box-shadow:0 26px 90px rgba(4,57,75,.22);text-align:center}
+    h1{margin:0 0 12px;font-size:30px}
+    p{line-height:1.8;color:#5b7483}
+    a{display:inline-flex;margin-top:16px;padding:14px 22px;border-radius:999px;background:#067c96;color:white;text-decoration:none;font-weight:900}
   </style>
 </head>
 <body>
   <section>
     <h1>正在清除舊版快取</h1>
-    <p id="status">清除完成後，請重新開啟最新版 Okinawa App。</p>
+    <p id="status">清除完成後請開啟最新版。</p>
     <a href="./">開啟最新版</a>
   </section>
   <script>
@@ -30,9 +30,9 @@
           const keys = await caches.keys();
           await Promise.all(keys.map((key) => caches.delete(key)));
         }
-        status.textContent = "已清除舊版快取。請點下方按鈕開啟最新版。";
+        status.textContent = "舊快取已清除。請點下方按鈕開啟最新版。";
       } catch (error) {
-        status.textContent = "瀏覽器阻擋部分清除動作，請回 Safari / Chrome 清除網站資料後再開。";
+        status.textContent = "如果仍看到舊版，請到 Safari / Chrome 清除這個網站的資料。";
       }
     }
     reset();

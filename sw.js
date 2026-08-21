@@ -1,4 +1,4 @@
-const CACHE_NAME = "okinawa-passport-atlas";
+const CACHE_NAME = "okinawa-journey-book";
 
 self.addEventListener("install", () => {
   self.skipWaiting();
@@ -15,7 +15,6 @@ self.addEventListener("activate", (event) => {
 
 self.addEventListener("fetch", (event) => {
   if (event.request.method !== "GET") return;
-
   event.respondWith(
     fetch(event.request)
       .then((response) => {
