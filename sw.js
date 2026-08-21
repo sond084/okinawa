@@ -1,4 +1,4 @@
-const CACHE_NAME = "okinawa-travel-app";
+const CACHE_NAME = "okinawa-passport-atlas";
 
 self.addEventListener("install", () => {
   self.skipWaiting();

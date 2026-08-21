@@ -3,48 +3,23 @@
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>Reset Okinawa App Cache</title>
+  <title>Reset Okinawa App</title>
   <style>
-    body {
-      margin: 0;
-      min-height: 100vh;
-      display: grid;
-      place-items: center;
-      background: linear-gradient(135deg, #c7f6ff, #fff4d7 52%, #ffb36b);
-      color: #082f42;
-      font-family: "Noto Sans TC", "Microsoft JhengHei", sans-serif;
-    }
-    .card {
-      width: min(88vw, 520px);
-      padding: 34px;
-      border-radius: 30px;
-      background: rgba(255, 255, 255, .84);
-      box-shadow: 0 24px 80px rgba(8, 47, 66, .18);
-      text-align: center;
-    }
-    h1 { margin: 0 0 12px; font-size: 32px; }
-    p { line-height: 1.7; color: #587184; }
-    a {
-      display: inline-flex;
-      margin-top: 18px;
-      padding: 14px 22px;
-      border-radius: 999px;
-      color: white;
-      background: #069db5;
-      text-decoration: none;
-      font-weight: 800;
-    }
-    code { color: #0a7790; font-weight: 800; }
+    body{margin:0;min-height:100vh;display:grid;place-items:center;background:linear-gradient(135deg,#b9f5ff,#fff3d5,#ffb15d);font-family:"Noto Sans TC","Microsoft JhengHei",sans-serif;color:#07364a}
+    section{width:min(88vw,520px);padding:34px;border-radius:32px;background:rgba(255,255,255,.82);box-shadow:0 30px 90px rgba(7,54,74,.22);text-align:center}
+    h1{margin:0 0 12px;font-size:32px}
+    p{line-height:1.8;color:#557286}
+    a{display:inline-flex;margin-top:16px;padding:14px 22px;border-radius:999px;background:#078ea6;color:white;text-decoration:none;font-weight:900}
   </style>
 </head>
 <body>
-  <section class="card">
-    <h1>快取已重置中</h1>
-    <p id="status">正在清除舊版 App 快取，完成後請按下方按鈕回到新版。</p>
+  <section>
+    <h1>正在清除舊版快取</h1>
+    <p id="status">清除完成後，請重新開啟最新版 Okinawa App。</p>
     <a href="./">開啟最新版</a>
   </section>
   <script>
-    async function resetCache() {
+    async function reset() {
       const status = document.getElementById("status");
       try {
         if ("serviceWorker" in navigator) {
@@ -55,12 +30,12 @@
           const keys = await caches.keys();
           await Promise.all(keys.map((key) => caches.delete(key)));
         }
-        status.innerHTML = "清除完成。請點 <code>開啟最新版</code>，如果還是舊畫面再按 Ctrl + F5。";
+        status.textContent = "已清除舊版快取。請點下方按鈕開啟最新版。";
       } catch (error) {
-        status.textContent = "清除時遇到瀏覽器限制，請按 Ctrl + F5，或到 Chrome 清除網站資料。";
+        status.textContent = "瀏覽器阻擋部分清除動作，請回 Safari / Chrome 清除網站資料後再開。";
       }
     }
-    resetCache();
+    reset();
   </script>
 </body>
 </html>
