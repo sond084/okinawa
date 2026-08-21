@@ -1,0 +1,36 @@
+<!doctype html>
+<html lang="zh-Hant">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+  <meta name="theme-color" content="#082f42">
+  <meta name="description" content="Okinawa 5D4N universal travel app with swipe navigation, itinerary, maps, checklist and notes.">
+  <title>Okinawa 5D4N Premium Travel App V16</title>
+  <link rel="manifest" href="manifest-v16.webmanifest">
+  <link rel="icon" href="icon.svg" type="image/svg+xml">
+  <link rel="stylesheet" href="styles-v16.css?v=16">
+</head>
+<body>
+  <main class="travel-os" id="app">
+    <div class="ambient ambient-a"></div>
+    <div class="ambient ambient-b"></div>
+
+    <header class="app-top">
+      <button class="icon-btn" id="prevView" type="button" aria-label="Previous page">&lsaquo;</button>
+      <div class="brand">
+        <span>OKINAWA 5D4N</span>
+        <strong id="viewTitle">V16 Premium</strong>
+      </div>
+      <button class="icon-btn accent" id="nextView" type="button" aria-label="Next page">&rsaquo;</button>
+    </header>
+
+    <section class="screen" id="screen" aria-live="polite"></section>
+
+    <nav class="tabbar" id="tabbar" aria-label="Main navigation"></nav>
+
+    <button class="install" id="installBtn" type="button" hidden>Install App</button>
+  </main>
+
+  <script src="app-v16.js?v=16"></script>
+</body>
+</html>

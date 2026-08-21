@@ -1,0 +1,15 @@
+{
+  "name": "Okinawa 5D4N Premium Travel App V16",
+  "short_name": "Okinawa V16",
+  "start_url": "./?v=16",
+  "display": "standalone",
+  "background_color": "#d8f8fb",
+  "theme_color": "#082f42",
+  "icons": [
+    {
+      "src": "icon.svg",
+      "sizes": "any",
+      "type": "image/svg+xml"
+    }
+  ]
+}
