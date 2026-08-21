@@ -1,0 +1,15 @@
+{
+  "name": "Okinawa 5D4N Travel App",
+  "short_name": "Okinawa",
+  "start_url": "./",
+  "display": "standalone",
+  "background_color": "#d8f8fb",
+  "theme_color": "#082f42",
+  "icons": [
+    {
+      "src": "icon.svg",
+      "sizes": "any",
+      "type": "image/svg+xml"
+    }
+  ]
+}
